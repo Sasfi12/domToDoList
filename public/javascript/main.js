@@ -97,7 +97,9 @@ toDoList.addEventListener("mousedown", function(e) {
                                   
             break;   
         case "confirm-input": 
-            clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
+                if(clicked.previousElementSibling.value.trim() != "" && clicked.previousElementSibling.value != undefined) {
+                    clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
+                }
         default:
             break;
     }
