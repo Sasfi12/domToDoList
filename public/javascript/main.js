@@ -65,17 +65,13 @@ toDoList.addEventListener("mousedown", function(e) {
             }
             break;
         case "modify":
-            // cas ou l'utilisateur appuie sur modify 
-            let newValue = prompt('enter your new choice !') ;
-            // je supprime la valeur 
-            if(newValue !== "" && newValue != undefined) { // je verifie que la valeur n'est pas vide. 
-            clicked.parentNode.previousElementSibling.textContent = newValue;
-            // si elle ne l'est pas je rajoute la nouvelle valeur récuperer dans le prompt. 
-            }
-            else {
-                alert("votre nouvelle valeur ne peut pas étre vide. ")
-            // si cette valeur est vide , je met une alerte à l'utilisateur. 
-            }
+            clicked.parentNode.innerHTML =  `
+                                            <button value = "done"class="item-button done">Done</button>
+                                            <input value = "new valué">  
+                                            <button value = "confirm-input">YES  </button>
+                                            <button value = "abort">Annuler</button>
+                                            <button value = "delete"class="item-button delete">Supprimer</button>
+                                            `
             break; 
         case "delete":
             clicked.parentNode.innerHTML = `<button value = "done"class="item-button done">Done</button>
@@ -100,6 +96,8 @@ toDoList.addEventListener("mousedown", function(e) {
             // je remonte encore deux fois le parent pour ramener toute la div actuelle à sa situation actuelle. 
                                   
             break;   
+        case "confirm-input": 
+            clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
         default:
             break;
     }
