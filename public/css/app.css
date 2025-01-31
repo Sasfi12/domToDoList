@@ -8,11 +8,8 @@ body {
     background-color: darkolivegreen;
     color: wheat;
    h1 {
+        margin: 0; 
         font-size: 3rem;
-    }
-    buttons {
-      border: none;
-      background-color: red;  
     }
 }
 

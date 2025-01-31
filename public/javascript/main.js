@@ -67,7 +67,7 @@ toDoList.addEventListener("mousedown", function(e) {
         case "modify":
             clicked.parentNode.innerHTML =  `
                                             <button value = "done"class="item-button done">Done</button>
-                                            <input value = "new valué">  
+                                            <input  placeholder = "enter your new value" >  
                                             <button value = "confirm-input">YES  </button>
                                             <button value = "abort">Annuler</button>
                                             <button value = "delete"class="item-button delete">Supprimer</button>
@@ -93,7 +93,7 @@ toDoList.addEventListener("mousedown", function(e) {
                                             <button value = "modify"class="item-button change">Modifier</button>    
                                             <button value = "delete"class="item-button delete">Supprimer</button>
                                             `
-            // je remonte encore deux fois le parent pour ramener toute la div actuelle à sa situation actuelle. 
+            // je remonte encore deux fois le parent pour ramener toute la div actuelle à sa situation precedente. 
                                   
             break;   
         case "confirm-input": 
