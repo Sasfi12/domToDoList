@@ -31,6 +31,9 @@ addButton.addEventListener("click", function() {
         // je leur rajoute aussi des classes pour pouvoirs manipuler celles-cis en style et en SCRIPT.                                                             
         divParent.querySelector(".text").textContent = newElemValue 
         // je pouse la valeur que j'ai recup avant. dans le h3 qui est dans la divParent. 
+    }
+    else {
+        alert("Your input is empty !")
     }   
     items.append(divParent)
     // Je prepend la div à la fin des autres. 
@@ -68,8 +71,8 @@ toDoList.addEventListener("mousedown", function(e) {
             clicked.parentNode.innerHTML =  `
                                             <button value = "done"class="item-button done">Done</button>
                                             <input  placeholder = "enter your new value" >  
-                                            <button value = "confirm-input">YES  </button>
-                                            <button value = "abort">Annuler</button>
+                                            <button value = "confirm-input">modify</button>
+                                            <button value = "abort">Quitté le mode modifier</button>
                                             <button value = "delete"class="item-button delete">Supprimer</button>
                                             `
             break; 
@@ -99,7 +102,8 @@ toDoList.addEventListener("mousedown", function(e) {
         case "confirm-input": 
                 if(clicked.previousElementSibling.value.trim() != "" && clicked.previousElementSibling.value != undefined) {
                     clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
-                }
+                // je m'assure que la valeur soit bien differente de ""(rien) avant de la push dans le text 
+                    }
         default:
             break;
     }

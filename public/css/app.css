@@ -11,5 +11,13 @@ body {
         margin: 0; 
         font-size: 3rem;
     }
+    button {
+        background-color: chocolate;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        
+    }
 }
+
 
