@@ -9,39 +9,18 @@
 </head>
 
 <body>
-<!-- Tout ce tient dans le body.  -->
- <video src=""></video>
- <h1 class="title">TO DO LIST</h1>
+    <!-- Tout ce tient dans le body.  -->
+    <video src=""></video>
+    <h1 class="title">TO DO LIST</h1>
     <div id="toDoList">
         <input type="text" placeholder="enter your text" id="user">
-        <button id="confirmRequest">add</button>
+        <button id="confirmRequest">Add</button>
+        <div id="menuDeroulant">
+            <button class="menu-choix" value="undone">Undone</button><button class="menu-choix"
+                value="all">All</button><button class="menu-choix" value="done">Done</button>
+        </div>
         <div id="items">
-        <div class="task">
-                <h3 class="text">Style placeholder: Normal</h3> 
-                <div class = "item-manipulation">                      
-                    <button value = "done"class="item-button done">Done</button>
-                    <button value = "modify"class="item-button change">Modifier</button>    
-                    <button value = "delete"class="item-button delete">Supprimer</button>
-                </div>
-        </div>
-        <div class="task">
-            <h3 class="text">Style placeholder: Modify</h3> 
-            <div class = "item-manipulation">                      
-                <button value = "done"class="item-button done">Done</button>
-                <input  placeholder = "enter your new value" >  
-                <button value = "confirm-input">modify</button>
-                <button value = "abort">Annuler</button>
-            </div>
-        </div>
-        <div class="task">
-            <h3 class="text">Style placeholder : Delete Confirm</h3> 
-            <div class = "item-manipulation">                      
-                <button value = "done"class="item-button done">Done</button>
-                <button value = "modify"class="item-button change">Modifier</button>    
-                <button value = "confirm"class="item-button confirm">Confirmer</button>
-                <button value = "abort"class="item-button confirm">Annuler</button>
-            </div>
-        </div>
+
         </div>
     </div>
     <script src="public/javascript/main.js"></script>

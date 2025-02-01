@@ -12,17 +12,28 @@ body {
 .title {
     margin: 0; 
     font-size: 3rem;
+    padding-bottom: 2rem;
 }
 button {
     background-color: chocolate;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    width: 10rem;
-    height: 5rem;
+    width: 5em;
+    height: 5em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     border-radius: 14px;
     
     
+}
+
+
+
+#menuDeroulant {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #toDoList {
@@ -56,17 +67,19 @@ button {
             .item-manipulation {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
+                flex-wrap: wrap;
                 gap: 10px;
                 button , input {
-                    width: 10rem;
-                    height: 5rem;
+                    width: 5rem;
+                    height: 2rem;
                     border-radius: 14px;
                 }
                 input {
-                    width: 10rem;
-                    height: auto;
+                    width: 5rem;
+                    height: 2rem;
+                    border-radius: 14px;
                     text-align: center;
                 }
 

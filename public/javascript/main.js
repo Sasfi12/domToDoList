@@ -69,8 +69,8 @@ toDoList.addEventListener("mousedown", function(e) {
         case "modify":
             clicked.parentNode.innerHTML =  `
                                             <button value = "done"class="item-button done">Done</button>
-                                            <input  placeholder = "enter your new value" >  
-                                            <button value = "confirm-input">modify</button>
+                                            <input  placeholder = "new value" >  
+                                            <button value = "confirm-input">Modifier</button>
                                             <button value = "abort">Annuler</button>
                                             `
             break; 
@@ -112,4 +112,23 @@ toDoList.addEventListener("mousedown", function(e) {
             break;
     }
 })
-
+let menuDeroulant = document.querySelector("#menuDeroulant"); 
+menuDeroulant.addEventListener("click", function(e){
+    clicked = e.target ; 
+    switch (clicked.value) {
+        case "done":
+            allTasks.forEach(function(task) {
+                if(task.style.backgroundColor == "green") {
+                    console.log('ayoo that guy is greeeen')
+                }
+                else {
+                    task.style = "display: none;"
+                }
+            })
+            break;
+    
+        default:
+            break;
+    }
+})
+// partie de 
