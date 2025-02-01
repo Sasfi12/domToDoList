@@ -1,13 +1,11 @@
 body {
     height: 100vh;
     width: 100vw; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-color: darkolivegreen;
     color: wheat;
-
+    h1 {
+        text-align: center;
+    }
 
 }
 
@@ -20,5 +18,60 @@ button {
     border: none;
     border-radius: 12px;
     cursor: pointer;
+    width: 10rem;
+    height: 5rem;
+    border-radius: 14px;
     
+    
+}
+
+#toDoList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    #items{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        .task {
+            border: solid;
+            background-color: rgb(32, 79, 32);
+            display: flex;
+            flex-direction: row;
+            width: 40%;
+            justify-content: space-between;
+            padding: 2rem;
+            .text {
+                width: 70%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+            .item-manipulation {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                button , input {
+                    width: 10rem;
+                    height: 5rem;
+                    border-radius: 14px;
+                }
+                input {
+                    width: 10rem;
+                    height: auto;
+                    text-align: center;
+                }
+
+                
+            }
+        }
+    }
 }

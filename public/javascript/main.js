@@ -101,12 +101,13 @@ toDoList.addEventListener("mousedown", function(e) {
                 if(clicked.previousElementSibling.value.trim() != "" && clicked.previousElementSibling.value != undefined) {
                     clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
                 // je m'assure que la valeur soit bien differente de ""(rien) avant de la push dans le text 
+                clicked.parentNode.innerHTML =  `
+                                                <button value = "done"class="item-button done">Done</button>
+                                                <button value = "modify"class="item-button change">Modifier</button>    
+                                                <button value = "delete"class="item-button delete">Supprimer</button>
+                                                `
                     }
-                clicked.parentNode.innerHTML = `
-                                            <button value = "done"class="item-button done">Done</button>
-                                            <button value = "modify"class="item-button change">Modifier</button>    
-                                            <button value = "delete"class="item-button delete">Supprimer</button>
-                                            `
+                
         default:
             break;
     }
