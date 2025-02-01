@@ -40,8 +40,7 @@ addButton.addEventListener("click", function() {
     allTasks = document.querySelectorAll(".task")
     // J'update ma valeur qui contientra le querySelectorAll de toutes les divs créer par mon javascript. 
     // Il existe aussi une autre méthode qui consiste à push chaque divParent dans un array, c'est une methode qui sauve plus d'espace. 
-    console.log(allTasks);
-    
+        
     
 });
 // les methodes pour accéder à ces boutons sont nombreuse , mais voici la mienne.
