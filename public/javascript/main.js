@@ -40,7 +40,7 @@ addButton.addEventListener("click", function() {
     allTasks = document.querySelectorAll(".task")
     // J'update ma valeur qui contientra le querySelectorAll de toutes les divs créer par mon javascript. 
     // Il existe aussi une autre méthode qui consiste à push chaque divParent dans un array, c'est une methode qui sauve plus d'espace. 
-        
+
     
 });
 // les methodes pour accéder à ces boutons sont nombreuse , mais voici la mienne.
@@ -71,8 +71,7 @@ toDoList.addEventListener("mousedown", function(e) {
                                             <button value = "done"class="item-button done">Done</button>
                                             <input  placeholder = "enter your new value" >  
                                             <button value = "confirm-input">modify</button>
-                                            <button value = "abort">Quitté le mode modifier</button>
-                                            <button value = "delete"class="item-button delete">Supprimer</button>
+                                            <button value = "abort">Annuler</button>
                                             `
             break; 
         case "delete":
@@ -103,6 +102,11 @@ toDoList.addEventListener("mousedown", function(e) {
                     clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
                 // je m'assure que la valeur soit bien differente de ""(rien) avant de la push dans le text 
                     }
+                clicked.parentNode.innerHTML = `
+                                            <button value = "done"class="item-button done">Done</button>
+                                            <button value = "modify"class="item-button change">Modifier</button>    
+                                            <button value = "delete"class="item-button delete">Supprimer</button>
+                                            `
         default:
             break;
     }

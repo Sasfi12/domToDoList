@@ -7,17 +7,18 @@ body {
     align-items: center;
     background-color: darkolivegreen;
     color: wheat;
-   h1 {
-        margin: 0; 
-        font-size: 3rem;
-    }
-    button {
-        background-color: chocolate;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        
-    }
+
+
 }
 
-
+.title {
+    margin: 0; 
+    font-size: 3rem;
+}
+button {
+    background-color: chocolate;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    
+}
