@@ -1,3 +1,5 @@
+import {updateTasks} from "./functions.js"
+
 let user = document.querySelector("#user") ; 
 // Je récupere l'input de l'utilisateur  
 let newElemValue = user.value
@@ -55,16 +57,18 @@ toDoList.addEventListener("mousedown", function(e) {
             // dans le cas ou c'est fait , le text en haut est barré. 
             if(clicked.textContent !== "Cancel") {
                 clicked.textContent = "Cancel"
-                clicked.parentNode.previousElementSibling.style.textDecoration = "line-through";
-                clicked.parentNode.parentNode.style.backgroundColor = "green"; 
+                clicked.parentNode.parentNode.classList.add("completed"); 
                 // dans le cas ou on à pas encore validé,
             }
             else {
                 clicked.textContent = "Done"
-                clicked.parentNode.previousElementSibling.style.textDecoration = "";
-                clicked.parentNode.parentNode.style.backgroundColor = ""; 
+                clicked.parentNode.parentNode.classList.remove("completed"); 
                 // dans le case ou on à dejà validé tout , on remet le style à zero.  
             }
+            // Update here 
+            console.log(typeof allTasks);
+            
+            console.log(updateTasks(allTasks));
             break;
         case "modify":
             clicked.parentNode.innerHTML =  `
@@ -100,7 +104,7 @@ toDoList.addEventListener("mousedown", function(e) {
         case "confirm-input": 
                 if(clicked.previousElementSibling.value.trim() != "" && clicked.previousElementSibling.value != undefined) {
                     clicked.parentNode.previousElementSibling.textContent = clicked.previousElementSibling.value
-                // je m'assure que la valeur soit bien differente de ""(rien) avant de la push dans le text 
+            // je m'assure que la valeur soit bien differente de ""(rien) avant de la push dans le text 
                 clicked.parentNode.innerHTML =  `
                                                 <button value = "done"class="item-button done">Done</button>
                                                 <button value = "modify"class="item-button change">Modifier</button>    
@@ -113,22 +117,18 @@ toDoList.addEventListener("mousedown", function(e) {
     }
 })
 let menuDeroulant = document.querySelector("#menuDeroulant"); 
-menuDeroulant.addEventListener("click", function(e){
-    clicked = e.target ; 
-    switch (clicked.value) {
+menuDeroulant.addEventListener("mousedown", function(e){
+    let x = e.target
+    switch(x.value) {
+        case "undone":
+             console.log('showing all not done yets')
+        break;
+        case "all":
+            console.log('showing all ')
+        break;
         case "done":
-            allTasks.forEach(function(task) {
-                if(task.style.backgroundColor == "green") {
-                    console.log('ayoo that guy is greeeen')
-                }
-                else {
-                    task.style = "display: none;"
-                }
-            })
-            break;
-    
-        default:
-            break;
+            console.log('showing all done')
+        break;
     }
 })
-// partie de 
+// partie du menu déroulant. 

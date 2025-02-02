@@ -56,7 +56,6 @@ button {
             flex-direction: row;
             width: 40%;
             justify-content: space-between;
-            padding: 2rem;
             .text {
                 width: 70%;
                 display: flex;
@@ -67,9 +66,11 @@ button {
             .item-manipulation {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: space-around;
                 align-items: center;
                 flex-wrap: wrap;
+                overflow: hidden;
+                padding: 2rem;
                 gap: 10px;
                 button , input {
                     width: 5rem;
@@ -86,5 +87,19 @@ button {
                 
             }
         }
+    }
+}
+.displayed {
+    display: flex !important; 
+}
+.notdisplayed {
+    display: none !important;
+}
+.completed {
+    transition: 1s;
+    background-color: green !important;
+    .text {
+        text-decoration: line-through;
+        color:violet;
     }
 }
