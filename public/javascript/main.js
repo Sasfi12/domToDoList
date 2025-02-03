@@ -41,7 +41,8 @@ addButton.addEventListener("click", function() {
     allTasks = document.querySelectorAll(".task")
     // J'update ma valeur qui contientra le querySelectorAll de toutes les divs créer par mon javascript. 
     // Il existe aussi une autre méthode qui consiste à push chaque divParent dans un array, c'est une methode qui sauve plus d'espace. 
-
+    setTimeout(menu() , 1000)
+    
     
 });
 // les methodes pour accéder à ces boutons sont nombreuse , mais voici la mienne.
@@ -80,7 +81,8 @@ toDoList.addEventListener("mousedown", function(e) {
                                             <button value = "confirm"class="item-button confirm">Confirmer</button>
                                             <button value = "abort"class="item-button confirm">Annuler</button>`
             // je remonte une fois le parent pour retourner jusqu'a la div qui contient mes boutons , et je la modifie en ajoutant les deux nouvelles options. 
-            allTasks = document.querySelectorAll(".task")
+            allTasks = document.querySelectorAll(".task"); 
+            setTimeout(menu() , 1000)
             break; 
         case "confirm": 
             clicked.parentNode.parentNode.remove()
@@ -113,59 +115,37 @@ toDoList.addEventListener("mousedown", function(e) {
 })
 let menuDeroulant = document.querySelector("#menuDeroulant"); 
 // une fonction pour parcourir mes tasks. 
-menuDeroulant.addEventListener("mousedown", function(e){
-    let x = e.target
+function menu() {
+    menuDeroulant.addEventListener("mousedown", function(e){
     let current ;
-    let undoneInterval , allInterval , doneInterval; 
-    switch(x.value) {
+    switch(e.target.value) {
         case "undone":
-                if(current != "undone") {
-                    clearInterval(allInterval) ; clearInterval(doneInterval) ;
-                    undoneInterval = setInterval(function() {
-                        allTasks.forEach(function(e) {
-                            if(e.classList.contains("completed")){
-                                e.style.display = "none";
-                            }
-                            else {
-                                e.style.display = "flex";
-                                console.log(this )}
-                        })
-                    }, 100);
-                    current = "undone";
-                }
+                allTasks.forEach(function(e) {
+                    if(e.classList.contains("completed")){
+                        e.style.display = "none";
+                    }
+                    else {
+                        e.style.display = "flex";
+                        console.log(this )}
+                })
         break;
         case "all":
-                if(current != "all") {
-                    clearInterval(doneInterval) ; clearInterval(undoneInterval)
-                    allInterval = setInterval(function() {
-                        allTasks.forEach(function(e) {
-                            e.style.display = "flex"; 
-                            console.log(this ) })
-                    }), 100;   
-                    current = "all";
-                }
+                allTasks.forEach(function(e) {
+                    e.style.display = "flex"; 
+                    console.log(this ) })   
             
         break;
         case "done":
-                if(current != "done") {
-                    clearInterval(allInterval) ; clearInterval(undoneInterval)
-                    doneInterval = setInterval(function() {
-                        allTasks.forEach(function(e) {
-                            if(!e.classList.contains("completed")){
-                                e.style.display = "none";
-                            }
-                            else {
-                                e.style.display = "flex";
-                            }
-                            console.log(this )}
-                        , 100)
-                    }); 
-                    current = "done";
-                }
-        break;
-        default:    
-        clearInterval(undoneInterval);clearInterval(allInterval); clearInterval(doneInterval) ; 
-        break ; 
+                allTasks.forEach(function(e) {
+                    if(!e.classList.contains("completed")){
+                        e.style.display = "none";
+                    }
+                    else {
+                        e.style.display = "flex";
+                    }
+                    console.log(this )})
+        break; 
     }
 })
+}
 // partie du menu déroulant. 
