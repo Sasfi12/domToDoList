@@ -14,6 +14,14 @@ body {
     font-size: 3rem;
     padding-bottom: 2rem;
 }
+#user {
+    background-color: cornsilk;
+    width: 15rem;
+    height: 5rem;
+    border: none;
+    text-align: center;
+    border-radius: 50px;
+}
 button {
     background-color: chocolate;
     border: none;
@@ -54,13 +62,16 @@ button {
             background-color: rgb(32, 79, 32);
             display: flex;
             flex-direction: row;
-            width: 40%;
+            width: 10%;
+            height: auto;
             justify-content: space-between;
+            transition: 1s;
             .text {
                 width: 70%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                transition: 1s;
 
             }
             .item-manipulation {
@@ -101,5 +112,6 @@ button {
     .text {
         text-decoration: line-through;
         color:violet;
+        transition: 1s;
     }
 }

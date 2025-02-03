@@ -1,5 +1,4 @@
-import {updateTasks} from "./functions.js"
-
+// les 3 valeurs qui me serviront plus tard pour le menu déroulant.. 
 let user = document.querySelector("#user") ; 
 // Je récupere l'input de l'utilisateur  
 let newElemValue = user.value
@@ -66,9 +65,6 @@ toDoList.addEventListener("mousedown", function(e) {
                 // dans le case ou on à dejà validé tout , on remet le style à zero.  
             }
             // Update here 
-            console.log(typeof allTasks);
-            
-            console.log(updateTasks(allTasks));
             break;
         case "modify":
             clicked.parentNode.innerHTML =  `
@@ -90,7 +86,6 @@ toDoList.addEventListener("mousedown", function(e) {
             clicked.parentNode.parentNode.remove()
             // je remonte deux fois le parent pour retourner au niveau de toute la div et j'enleve tout.
             allTasks = document.querySelectorAll(".task")
-            
             break; 
         case "abort": 
             clicked.parentNode.innerHTML =  `
@@ -117,18 +112,60 @@ toDoList.addEventListener("mousedown", function(e) {
     }
 })
 let menuDeroulant = document.querySelector("#menuDeroulant"); 
+// une fonction pour parcourir mes tasks. 
 menuDeroulant.addEventListener("mousedown", function(e){
     let x = e.target
+    let current ;
+    let undoneInterval , allInterval , doneInterval; 
     switch(x.value) {
         case "undone":
-             console.log('showing all not done yets')
+                if(current != "undone") {
+                    clearInterval(allInterval) ; clearInterval(doneInterval) ;
+                    undoneInterval = setInterval(function() {
+                        allTasks.forEach(function(e) {
+                            if(e.classList.contains("completed")){
+                                e.style.display = "none";
+                            }
+                            else {
+                                e.style.display = "flex";
+                                console.log(this )}
+                        })
+                    }, 100);
+                    current = "undone";
+                }
         break;
         case "all":
-            console.log('showing all ')
+                if(current != "all") {
+                    clearInterval(doneInterval) ; clearInterval(undoneInterval)
+                    allInterval = setInterval(function() {
+                        allTasks.forEach(function(e) {
+                            e.style.display = "flex"; 
+                            console.log(this ) })
+                    }), 100;   
+                    current = "all";
+                }
+            
         break;
         case "done":
-            console.log('showing all done')
+                if(current != "done") {
+                    clearInterval(allInterval) ; clearInterval(undoneInterval)
+                    doneInterval = setInterval(function() {
+                        allTasks.forEach(function(e) {
+                            if(!e.classList.contains("completed")){
+                                e.style.display = "none";
+                            }
+                            else {
+                                e.style.display = "flex";
+                            }
+                            console.log(this )}
+                        , 100)
+                    }); 
+                    current = "done";
+                }
         break;
+        default:    
+        clearInterval(undoneInterval);clearInterval(allInterval); clearInterval(doneInterval) ; 
+        break ; 
     }
 })
 // partie du menu déroulant. 
